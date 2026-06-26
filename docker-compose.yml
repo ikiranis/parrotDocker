@@ -5,14 +5,14 @@ services:
       dockerfile: Dockerfile
     container_name: parrot-docker-app
     ports:
-      - "8888:9999"
+      - "${HOST_PORT}:9999"
     environment:
       # Derby's create=true aborts if the target directory already exists, and the
       # volume mount pre-creates /app/db. Point the DB at a subdirectory Derby can
       # create itself; the data still lands inside the mounted ./db volume.
       SPRING_DATASOURCE_URL: "jdbc:derby:db/parrotdb;create=true;"
     volumes:
-      - /run/media/rocean/Fallout/RandomPhotos:/media/photos
+      - ${PHOTOS_PATH}:/media/photos
       - ./db:/app/db
       - ./thumbnails:/app/thumbnails
     restart: unless-stopped

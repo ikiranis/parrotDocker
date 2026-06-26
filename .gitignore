@@ -21,3 +21,7 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Environment (keep the sample committed)
+.env
+!.env.sample
