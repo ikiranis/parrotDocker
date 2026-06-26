@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: parrot-docker-app
+    container_name: ${CONTAINER_NAME}
     ports:
       - "${HOST_PORT}:9999"
     environment:
