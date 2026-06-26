@@ -9,19 +9,20 @@ A Spring Boot app (Java 21) that serves and thumbnails a photo library, backed b
 
 ## Configuration
 
-Edit [docker-compose.yml](docker-compose.yml) before first run:
+Copy the sample env file and edit it before first run:
 
-- **Photo source** — the first volume maps your photo directory into the container at `/media/photos`. Change the host path to point at your library:
+```sh
+cp .env.sample .env
+```
 
-  ```yaml
-  volumes:
-    - /your/photo/path:/media/photos
-  ```
+[.env](.env.sample) holds the settings Compose reads at startup:
 
-- **Port** — the app is published on host port `8888` (mapped to container port `9999`).
-- **Timezone** — the image is built with `TZ=Europe/Athens` (see [Dockerfile](Dockerfile)).
+- **`HOST_PORT`** — host port the app is published on (mapped to container port `9999`). Defaults to `8888`.
+- **`PHOTOS_PATH`** — host path to the photo library, mounted into the container at `/media/photos`.
 
-The `./db` and `./thumbnails` directories are bind-mounted for persistent Derby data and generated thumbnails.
+`.env` is gitignored; commit changes to [.env.sample](.env.sample) instead.
+
+The image is also built with `TZ=Europe/Athens` (see [Dockerfile](Dockerfile)). The `./db` and `./thumbnails` directories are bind-mounted for persistent Derby data and generated thumbnails.
 
 ## Install & run
 
@@ -51,7 +52,7 @@ docker exec -it parrot-docker-app /bin/sh
 
 ## Access
 
-Once running, the API is available at:
+Once running, the API is available on the port set in `HOST_PORT` (default `8888`):
 
 ```text
 http://localhost:8888/
