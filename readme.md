@@ -6,6 +6,13 @@ A Spring Boot app (Java 21) that serves and thumbnails a photo library, backed b
 
 - Docker and Docker Compose
 - A directory of photos to serve (mounted into the container)
+- The application JAR file — place your built `app.jar` inside the `app/` directory before building the image:
+
+  ```sh
+  cp /path/to/your/build/app.jar app/app.jar
+  ```
+
+  The JAR is gitignored and must be provided manually.
 
 ## Configuration
 
