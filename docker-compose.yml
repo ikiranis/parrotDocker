@@ -15,4 +15,5 @@ services:
       - ${PHOTOS_PATH}:/media/photos
       - ./db:/app/db
       - ./thumbnails:/app/thumbnails
+      - ./covers:/app/covers
     restart: unless-stopped
