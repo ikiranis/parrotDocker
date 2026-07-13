@@ -12,7 +12,7 @@ services:
       # create itself; the data still lands inside the mounted ./db volume.
       SPRING_DATASOURCE_URL: "jdbc:derby:db/parrotdb;create=true;"
     volumes:
-      - ${PHOTOS_PATH}:/media/photos
+      - ${MEDIA_PATH}:/media/myMedia
       - ./db:/app/db
       - ./thumbnails:/app/thumbnails
       - ./covers:/app/covers
