@@ -25,7 +25,7 @@ cp .env.sample .env
 [.env](.env.sample) holds the settings Compose reads at startup:
 
 - **`HOST_PORT`** — host port the app is published on (mapped to container port `9999`). Defaults to `8888`.
-- **`PHOTOS_PATH`** — host path to the photo library, mounted into the container at `/media/photos`.
+- **`MEDIA_PATH`** — host path to the photo library, mounted into the container at `/media/myMedia`.
 
 `.env` is gitignored; commit changes to [.env.sample](.env.sample) instead.
 
